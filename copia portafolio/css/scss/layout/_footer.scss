@@ -1,0 +1,17 @@
+/* Footer styles */
+footer {
+  background-color: $primary-color;
+  color: $highlight-color;
+  text-align: center;
+  padding: $spacing-unit;
+  font-family: 'Calibri', sans-serif;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  @include responsive($breakpoint-md) {
+    padding: $spacing-unit * 2;
+  }
+}

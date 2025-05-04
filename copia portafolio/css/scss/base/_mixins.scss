@@ -1,0 +1,22 @@
+/* Mixins */
+@mixin transition($properties: all) {
+  transition: $properties $transition-duration ease-in-out;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid($columns, $gap: $spacing-unit) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin responsive($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}

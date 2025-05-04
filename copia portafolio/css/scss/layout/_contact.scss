@@ -1,0 +1,58 @@
+/* Contact styles */
+.contact {
+  padding: $spacing-unit * 2;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: $spacing-unit;
+    text-align: center;
+  }
+
+  form {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit;
+
+      li {
+        margin-bottom: $spacing-unit / 2;
+
+        label {
+          font-size: 1rem;
+          color: $primary-color;
+          font-family: 'Calibri', sans-serif;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: $spacing-unit / 2;
+          border: 1px solid $secondary-color;
+          border-radius: $border-radius;
+          font-family: 'Calibri', sans-serif;
+
+          &:focus {
+            outline: none;
+            border-color: $highlight-color;
+          }
+        }
+
+        button {
+          width: 100%;
+          padding: $spacing-unit;
+          background-color: $primary-color;
+          color: $background-color;
+          border: none;
+          border-radius: $border-radius;
+          font-size: 1rem;
+          cursor: pointer;
+          font-family: 'Calibri', sans-serif;
+
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+      }
+    }
+  }
+}

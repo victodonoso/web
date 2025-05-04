@@ -1,0 +1,370 @@
+/* Paleta de colores */
+:root {
+    --primary-color: #000; /* Black */
+    --secondary-color: #333; /* Dark gray */
+    --background-color: #f4f4f4; /* Light gray */
+    --highlight-color: #fff; /* White */
+    --hover-color: #333; /* Dark gray for hover */
+}
+
+/* Transiciones generales */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: 'Calibri', sans-serif;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--hover-color);
+}
+
+/* Ajustes para el encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Estilos para el logo en el encabezado */
+header .logo h1 {
+    margin: 0;
+    font-family: 'Calibri', sans-serif; /* Estilo noventero */
+    font-size: 2rem;
+    text-align: left;
+    font-weight: normal;
+    color: var(--primary-color);
+}
+
+/* Ajustes para el menú de navegación */
+header nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: block;
+}
+
+header nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+header nav ul li a:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--primary-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+dropbtn:hover {
+    color: var(--highlight-color);
+}
+
+/* Estilos para el contenido principal */
+main {
+    padding: 1rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: normal;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+/* Ajustes para la galería */
+.gallery {
+    padding: 2rem 0;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+gallery img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Ajustes para la cuadrícula de imágenes */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Estilos para los contenedores invisibles */
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Maintain aspect ratio */
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ajustes para el pie de página */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.hero-title {
+    animation: fadeIn 1s ease-in-out;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.hero-description {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+/* Estilos para el carrusel */
+.carousel {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.carousel-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 1rem;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-prev {
+    left: 0.5rem;
+}
+
+.carousel-next {
+    right: 0.5rem;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: var(--hover-color);
+}
+
+/* Consultas de medios para pantallas más grandes */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    .works-grid, .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery img {
+        border-radius: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        margin: 0 100px;
+    }
+
+    .works-grid, .image-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery img {
+        transform: scale(1);
+    }
+
+    .gallery img:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .carousel-item {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Estilos optimizados para títulos y descripciones */
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.gallery-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.press-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.press-description {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.press-list .press-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.press-list .press-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Compressed version saved as styles.min.css */
+
+/* Estilos para el contenedor */
+.container {
+    background-color: var(--background-color);
+}

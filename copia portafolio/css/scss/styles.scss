@@ -1,0 +1,228 @@
+@import 'base/reset'; // Reinicia los estilos predeterminados del navegador
+@import 'base/variables'; // Variables globales para colores, tamaños y breakpoints
+@import 'base/mixins'; // Mixins reutilizables para transiciones, grillas y flexbox
+@import 'layout/header'; // Estilos específicos para el encabezado
+@import 'layout/footer'; // Estilos específicos para el pie de página
+@import 'layout/gallery'; // Estilos específicos para la galería
+@import 'layout/contact'; // Estilos específicos para la página de contacto
+
+// Variables globales
+$primary-color: #000; // Color principal
+$secondary-color: #808080; // Color secundario
+$background-color: #fff; // Color de fondo
+$font-family: 'Arial, sans-serif'; // Fuente principal
+$transition-duration: 0.3s; // Duración de transiciones
+$border-radius: 5px; // Radio de bordes
+
+// Estilos generales para el cuerpo de la página
+body {
+  font-family: $font-family; // Fuente principal definida en variables
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: $primary-color; // Color principal definido en variables
+  background-color: $background-color; // Fondo definido en variables
+
+  a {
+    text-decoration: none; // Sin subrayado en enlaces
+    color: $primary-color;
+
+    &:hover {
+      text-decoration: underline; // Subrayado al pasar el mouse
+      color: $secondary-color; // Color secundario al pasar el mouse
+    }
+  }
+}
+
+// Estilos para el encabezado
+header {
+  background-color: $background-color; // Fondo del encabezado
+  color: $primary-color; // Color del texto en el encabezado
+  padding: 1rem;
+
+  .logo {
+    h1 {
+      margin: 0;
+      font-size: 1.5rem; // Tamaño de fuente del logo
+      font-weight: normal;
+    }
+  }
+
+  nav {
+    ul {
+      @extend .nav; // Utiliza la clase de Bootstrap para navegación
+      flex-direction: column;
+
+      li {
+        margin: 0.5rem 0;
+
+        a {
+          font-size: 1rem; // Tamaño de fuente de los enlaces
+          @include transition(color); // Transición de color en enlaces
+        }
+      }
+    }
+  }
+
+  @include responsive($breakpoint-md) {
+    nav ul {
+      flex-direction: row; // Menú en fila para pantallas medianas
+    }
+  }
+}
+
+// Estilos para el contenido principal
+main {
+  padding: 1rem;
+
+  h2 {
+    font-size: 1.5rem; // Tamaño de fuente de los títulos
+    margin-bottom: 1rem;
+    font-weight: normal;
+  }
+
+  p {
+    margin-bottom: 1rem; // Espaciado entre párrafos
+  }
+}
+
+// Estilos para la grilla de imágenes
+.image-grid {
+  @include grid(auto-fit, minmax(150px, 1fr)); // Grilla responsiva
+  gap: 1rem; // Espaciado entre elementos
+  margin: 1rem 0;
+
+  img {
+    @extend .img-fluid; // Clase de Bootstrap para imágenes responsivas
+    border-radius: $border-radius; // Bordes redondeados
+    @include transition(transform); // Transición en transformaciones
+
+    &:hover {
+      transform: scale(1.05); // Escala al pasar el mouse
+    }
+  }
+}
+
+// Estilos para la grilla de trabajos
+.works-grid {
+  @extend .row; // Utiliza la grilla de Bootstrap
+  gap: 20px; // Espaciado entre elementos
+
+  .work-item {
+    @extend .col-md-3; // Divide en columnas responsivas
+    text-align: center;
+
+    img {
+      @extend .img-fluid; // Clase de Bootstrap para imágenes responsivas
+      border-radius: $border-radius; // Bordes redondeados
+      @include transition(transform); // Transición en transformaciones
+
+      &:hover {
+        transform: scale(1.1); // Escala al pasar el mouse
+      }
+    }
+
+    h3 {
+      margin-top: 0.5rem;
+      font-size: 1rem; // Tamaño de fuente de los títulos
+      font-weight: normal;
+    }
+  }
+}
+
+// Estilos para el pie de página
+footer {
+  background-color: $primary-color; // Fondo del pie de página
+  color: $background-color; // Color del texto en el pie de página
+  text-align: center;
+  padding: $spacing-unit;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem; // Tamaño de fuente del texto
+  }
+
+  @include responsive($breakpoint-md) {
+    padding: $spacing-unit * 2; // Espaciado adicional en pantallas medianas
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from {
+    opacity: 0; // Inicio de la animación
+  }
+  to {
+    opacity: 1; // Fin de la animación
+  }
+}
+
+.image-grid img {
+  animation: fadeIn 0.5s ease-in-out; // Animación de aparición
+}
+
+// Media Queries
+@media (max-width: $breakpoint-sm) {
+  header {
+    flex-direction: column; // Cambia la dirección del encabezado en pantallas pequeñas
+    align-items: flex-start;
+
+    nav ul {
+      flex-direction: column; // Menú en columna para dispositivos pequeños
+    }
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); // Ajusta la grilla en pantallas pequeñas
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  body {
+    margin: 0 5vw; // Márgenes laterales en pantallas grandes
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(4, 1fr); // Grilla de 4 columnas en pantallas grandes
+  }
+}
+
+// Estilos para la sección de héroe
+.hero-title {
+  font-size: 2rem; // Tamaño de fuente del título
+  font-weight: bold;
+}
+
+.hero-description {
+  font-size: 1.2rem; // Tamaño de fuente de la descripción
+  color: $secondary-color; // Color secundario
+}
+
+// Estilos para la sección de galería
+.gallery-title {
+  font-size: 1.8rem; // Tamaño de fuente del título
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+// Estilos para la sección de prensa
+.press-title {
+  font-size: 1.8rem; // Tamaño de fuente del título
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.press-description {
+  font-size: 1rem; // Tamaño de fuente de la descripción
+  color: $secondary-color; // Color secundario
+}
+
+.press-list .press-link {
+  color: $primary-color; // Color de los enlaces
+  text-decoration: none; // Sin subrayado
+
+  &:hover {
+    color: $secondary-color; // Color secundario al pasar el mouse
+    text-decoration: underline; // Subrayado al pasar el mouse
+  }
+}

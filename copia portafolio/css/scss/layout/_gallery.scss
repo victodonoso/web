@@ -1,0 +1,30 @@
+/* Gallery styles */
+.gallery {
+  padding: $spacing-unit * 2;
+
+  .gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: $spacing-unit;
+
+    @include responsive($breakpoint-lg) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .image-grid {
+    @include grid(auto-fit, minmax(150px, 1fr));
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+      @include transition(transform);
+
+      &:hover {
+        transform: scale(1.05);
+        border-color: $secondary-color;
+      }
+    }
+  }
+}

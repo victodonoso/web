@@ -1,0 +1,42 @@
+/* Header styles */
+header {
+  background-color: $background-color;
+  color: $primary-color;
+  padding: $spacing-unit;
+
+  .logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: 'Calibri', sans-serif;
+  }
+
+  nav ul {
+    @include flex-center;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0.5rem 0;
+
+      a {
+        font-size: 1rem;
+        color: $primary-color;
+        text-decoration: none;
+        font-family: 'Calibri', sans-serif;
+
+        &:hover {
+          color: $highlight-color;
+        }
+      }
+    }
+  }
+
+  @include responsive($breakpoint-md) {
+    nav ul {
+      flex-direction: row;
+    }
+  }
+}
